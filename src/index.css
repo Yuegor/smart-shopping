@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-paper text-ink font-body antialiased;
+    min-height: 100dvh;
+    overscroll-behavior-y: none;
+  }
+  html.dark body {
+    @apply bg-night-bg text-night-ink;
+  }
+  h1, h2, h3, .font-display {
+    font-feature-settings: 'ss01' on;
+  }
+  ::selection {
+    background: rgba(47, 111, 78, 0.2);
+  }
+  /* visible keyboard focus */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid #2F6F4E;
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  html.dark a:focus-visible,
+  html.dark button:focus-visible,
+  html.dark input:focus-visible,
+  html.dark [tabindex]:focus-visible {
+    outline-color: #6FCF97;
+  }
+}
+
+@layer utilities {
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
