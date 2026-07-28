@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/smart-shopping/sw.js', { scope: '/smart-shopping/' })})}
